@@ -10,6 +10,4 @@ $CP = @(Get-Process "signage")[0].MainWindowHandle
 
 Start-Sleep -Seconds 0.5
 
-# TESTING EDITS
-
 [Microsoft.VisualBasic.Interaction]::AppActivate("Content Player")
