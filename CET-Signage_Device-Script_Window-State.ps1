@@ -1,11 +1,15 @@
-﻿param($State)
+﻿add-type -AssemblyName microsoft.VisualBasic
+add-type -AssemblyName System.Windows.Forms
 
-#Set Player Window State
-[xml]$myXML = Get-Content "C:\Users\Public\Documents\Four Winds Interactive\Signage\Profiles\(default)\ProfileSettings.xml"
-$myXML.ProfileSettings.PlayerWindowState = $State
-$myXML.Save("C:\Users\Public\Documents\Four Winds Interactive\Signage\Profiles\(default)\ProfileSettings.xml")
+[Microsoft.VisualBasic.Interaction]::AppActivate("Content Player")
 
-Start-Sleep -Seconds 1
+start-sleep -Seconds 1
+[System.Windows.Forms.SendKeys]::SendWait("{ESC}")
 
-#Restart Player Machine
-Restart-Computer
+start-sleep -Seconds 1
+
+[System.Windows.Forms.SendKeys]::SendWait("% ")
+
+start-sleep -Seconds 1
+
+[System.Windows.Forms.SendKeys]::SendWait("x")

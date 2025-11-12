@@ -1,0 +1,11 @@
+﻿[xml]$DeviceXML = Get-Content "C:\Users\Public\Documents\Four Winds Interactive\Signage\DeviceSettings.xml"
+$DeviceXML.DeviceSettings.WantSendLogs = "true"
+$DeviceXML.DeviceSettings.SendLogsTimeWindows.TimeWindow.FromTime = "2024-01-01T03:00:00"
+$DeviceXML.DeviceSettings.SendLogsTimeWindows.TimeWindow.ToTime = "2024-01-01T05:00:00"
+$DeviceXML.DeviceSettings.WantSendStatus = "true"
+$DeviceXML.DeviceSettings.SendStatusIntervalTicks = "36000000000"
+$DeviceXML.DeviceSettings.UseFwiServices = "true"
+$DeviceXML.DeviceSettings.FwiServicesConnectionProperties.Hostname = "https://us-ded.fwicloud.com/microsoft-sv/"
+$DeviceXML.DeviceSettings.FwiServicesConnectionProperties.Username = "Microsoft\dedsvcmicrosoft"
+$DeviceXML.DeviceSettings.FwiServicesConnectionProperties.ExtendedProperties = "NEqlHS4lZUpEbaTF8xqY0gvbo5F6zs5aX18oC4mxTEE="
+$DeviceXML.Save("C:\Users\Public\Documents\Four Winds Interactive\Signage\DeviceSettings.xml")
