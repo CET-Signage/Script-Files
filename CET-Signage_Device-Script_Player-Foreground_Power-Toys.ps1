@@ -1,4 +1,4 @@
-﻿#v0.2
+﻿#v0.3
 function Bring-WindowToFocus {
     [CmdletBinding()]
     param (
@@ -101,7 +101,7 @@ Add-Type -AssemblyName System.Windows.Forms
 Start-Sleep -Seconds 7
 Bring-WindowToFocus signage  
 # Get the Content Player window
-$signagewindow = Get-Process -Name signage | Select-Object -First 1
+#$signagewindow = Get-Process -Name signage | Select-Object -First 1
   
 if ($signagewindow) {
      #Type the text into Notepad
