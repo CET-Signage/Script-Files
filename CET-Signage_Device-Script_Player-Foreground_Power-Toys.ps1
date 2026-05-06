@@ -1,4 +1,4 @@
-﻿#v0.6
+﻿#v0.7
 function Bring-WindowToFocus {
     [CmdletBinding()]
     param (
@@ -99,13 +99,14 @@ Add-Type -AssemblyName System.Windows.Forms
   
 # Wait for Content Player to open
 Start-Sleep -Seconds 7
-Bring-WindowToFocus signage  
+#Bring-WindowToFocus signage  
 # Get the Content Player window
 $signagewindow = Get-Process -Name signage | Select-Object -First 1
   
 if ($signagewindow) {
      #Type the text into Notepad
     [System.Windows.Forms.SendKeys]::SendWait("^+'")
+    #this was changed from MAXIMIZE -> SHOWMAXIMIZED to no effect, rollback if needed
     (Get-Process -Name signage).MainWindowHandle | foreach { Set-WindowStyle SHOWMAXIMIZED $_ }
 }
 else {
