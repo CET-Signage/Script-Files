@@ -1,4 +1,5 @@
-﻿function Bring-WindowToFocus {
+﻿#v0.2
+function Bring-WindowToFocus {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory=$true)]
@@ -94,10 +95,10 @@ Add-Type -AssemblyName System.Windows.Forms
 #$textToType = '{*LCONTROL}{*LWIN}T'
   
 # Start Content Player
-Start-Process "C:\Program Files\Four Winds Interactive\Content Player\signage.exe" -WindowStyle Maximized
+#Start-Process "C:\Program Files\Four Winds Interactive\Content Player\signage.exe" -WindowStyle Maximized
   
 # Wait for Content Player to open
-Start-Sleep -Seconds 10
+Start-Sleep -Seconds 7
 Bring-WindowToFocus signage  
 # Get the Content Player window
 $signagewindow = Get-Process -Name signage | Select-Object -First 1
