@@ -101,12 +101,13 @@ Add-Type -AssemblyName System.Windows.Forms
 Start-Sleep -Seconds 7
 Bring-WindowToFocus signage  
 # Get the Content Player window
-#$signagewindow = Get-Process -Name signage | Select-Object -First 1
+$signagewindow = Get-Process -Name signage | Select-Object -First 1
   
 if ($signagewindow) {
      #Type the text into Notepad
     [System.Windows.Forms.SendKeys]::SendWait("^+'")
-    (Get-Process -Name signage).MainWindowHandle | foreach { Set-WindowStyle MAXIMIZE $_ }
+    (Get-Process -Name signage).MainWindowHandle 
+    #| foreach { Set-WindowStyle MAXIMIZE $_ }
 }
 else {
     Write-Host "Content Player is not running or could not be found."
