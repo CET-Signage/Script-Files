@@ -99,7 +99,7 @@ Add-Type -AssemblyName System.Windows.Forms
   
 # Wait for Content Player to open
 Start-Sleep -Seconds 7
-#Bring-WindowToFocus signage  
+Bring-WindowToFocus signage  
 # Get the Content Player window
 $signagewindow = Get-Process -Name signage | Select-Object -First 1
   
