@@ -17,11 +17,11 @@
         #$ReaderURL = "http://$PCNameOrIP"+":10561/player/readerId/$ReaderIDName"
 
         #Define the credentials used to pass commands to the cotnent player PC
-        $Username = "ec1-cms"
+        $Username = "MSCET"
         $Password = "Cloud_33"
         $Domain = ""
 
-        write-host Sending $VariableURL
+        #write-host Sending $VariableURL
 
         #Pass the variable value to the cotnent player PC
         $webclient = new-object System.Net.WebClient
