@@ -4,14 +4,16 @@
         #In place of parameters, static values can be defined here for testing purposes
         #set to CMS test device
          $PCNameOrIP = "CMS-DD-SPARE01"
-         $VariableName = "Resolution"
+         $VariableName1 = "Resolution"
+         $VariableName2 = "Aspect Ratio"
         # $VariableValue = "http://ctexp-web01-signage.westus.cloudapp.azure.com/media/files/EnvisioningTheatre/Images/CEC-InvisioningTheatre_Manufacturing_1.jpg"
         # $ReaderIDName = "IMAGE"
         
         #Define the URL used to pass a variable value to the cotnent player PC
         $Raw_Resolution = (Get-WmiObject -Class Win32_VideoController).VideoModeDescription
-        $VariableValue = ($Raw_Resolution -split '\s+x\s+', 3)[0..1] -join 'x'
-        $VariableURL = "http://$PCNameOrIP"+":10561/player/command/RunScript?1=Player.SetVariable($VariableName,$VariableValue)"
+        $VariableValue1 = ($Raw_Resolution -split '\s+x\s+', 3)[0..1] -join 'x'
+        
+        $VariableURL = "http://$PCNameOrIP"+":10561/player/command/RunScript?1=Player.SetVariable($VariableName1,$VariableValue1)"
 
         #Define the URL used to pass a Reader ID to the cotnent player PC
         #$ReaderURL = "http://$PCNameOrIP"+":10561/player/readerId/$ReaderIDName"
