@@ -12,8 +12,10 @@
         #Define the URL used to pass a variable value to the cotnent player PC
         $Raw_Resolution = (Get-WmiObject -Class Win32_VideoController).VideoModeDescription
         $VariableValue1 = ($Raw_Resolution -split '\s+x\s+', 3)[0..1] -join 'x'
-        
+        $Resolution_Array = ($Raw_Resolution -split '\s+x\s+', 3)[0..1]
+        $VariableValue2 = $Resolution_Array[0] / $Resolution_Array[1]
         $VariableURL = "http://$PCNameOrIP"+":10561/player/command/RunScript?1=Player.SetVariable($VariableName1,$VariableValue1)"
+        $VariableURL2 = "http://$PCNameOrIP"+":10561/player/command/RunScript?1=Player.SetVariable($VariableName2,$VariableValue2)"
 
         #Define the URL used to pass a Reader ID to the cotnent player PC
         #$ReaderURL = "http://$PCNameOrIP"+":10561/player/readerId/$ReaderIDName"
@@ -29,6 +31,7 @@
         $webclient = new-object System.Net.WebClient
         $webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password, $Domain)
         $webpage = $webclient.DownloadString($VariableURL)
+        $webpage = $webclient.DownloadString($VariableURL2)
 
         #write-host Sending $ReaderURL
 
