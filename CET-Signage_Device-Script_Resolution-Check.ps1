@@ -3,9 +3,9 @@
 
         #In place of parameters, static values can be defined here for testing purposes
         #set to CMS test device
-         $PCNameOrIP = "CMS-DD-SPARE01"
+         $PCNameOrIP = [System.Net.Dns]::GetHostName()
          $VariableName1 = "Resolution"
-         $VariableName2 = "Aspect Ratio"
+         $VariableName2 = "Aspect_Ratio"
         # $VariableValue = "http://ctexp-web01-signage.westus.cloudapp.azure.com/media/files/EnvisioningTheatre/Images/CEC-InvisioningTheatre_Manufacturing_1.jpg"
         # $ReaderIDName = "IMAGE"
         
