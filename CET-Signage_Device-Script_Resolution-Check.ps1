@@ -35,6 +35,7 @@
         $webclient.Credentials = new-object System.Net.NetworkCredential($Username, $Password, $Domain)
         $webpage = $webclient.DownloadString($VariableURL)
         $webpage = $webclient.DownloadString($VariableURL2)
+        $webpage = $webclient.DownloadString($VariableURL3)
 
         #write-host Sending $ReaderURL
 
